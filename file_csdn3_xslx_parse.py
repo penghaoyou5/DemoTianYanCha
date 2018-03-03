@@ -19,6 +19,8 @@ def write_file(worksheet,line_number,company_obj):
     worksheet.write(line_number, 3, company_obj.regist_mony)
     worksheet.write(line_number, 4, company_obj.regist_time)
     worksheet.write(line_number, 5, company_obj.regist_address)
+    worksheet.write(line_number, 6, company_obj.phone)
+
 
 
 
