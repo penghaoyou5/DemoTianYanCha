@@ -11,7 +11,7 @@ import xlsxwriter
 
 # 创建新表格
 global worksheet
-workbook = xlsxwriter.Workbook("result.xls")
+workbook = xlsxwriter.Workbook("result"+ time.time() +".xls")
 worksheet = workbook.add_worksheet()
 
 
