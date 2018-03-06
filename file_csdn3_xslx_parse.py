@@ -22,6 +22,32 @@ def write_file(worksheet,line_number,company_obj):
     worksheet.write(line_number, 6, company_obj.phone)
 
 
+#写入已经存在的表格
+def write_file_exist(table_name,line_number,company_obj):
+    from xlrd import open_workbook
+    from xlutils.copy import copy
+
+    rb = open_workbook(table_name)
+
+    # 通过sheet_by_index()获取的sheet没有write()方法
+    # rs = rb.sheet_by_index(0)
+
+    wb = copy(rb)
+
+    # 通过get_sheet()获取的sheet有write()方法
+    ws = wb.get_sheet(0)
+
+    # ws.write(0, 0, 'changed!')
+    ws.write(line_number, 1, company_obj.company_name)
+    ws.write(line_number, 2, company_obj.Legal_representative)
+    ws.write(line_number, 3, company_obj.regist_mony)
+    ws.write(line_number, 4, company_obj.regist_time)
+    ws.write(line_number, 5, company_obj.regist_address)
+    ws.write(line_number, 6, company_obj.phone)
+
+    wb.save(table_name)
+
+
 
 
 

@@ -20,3 +20,4 @@ XlsxWriter (1.0.2)
 bs64 4.6.0
 urllib (1.21.1)
 requests (2.18.4)
+sudo pip install xlutils;

@@ -3,6 +3,7 @@ import time
 import sys
 import urllib
 import requests
+import file_csdn3_util
 
 """
 一个账号只能查询100条，所以应该需要多个账号的源进行轮流查询
@@ -76,6 +77,16 @@ def main(keyword):
     with open(file_name, 'w') as of:
         of.write(resultPage.text)
 
+
+def main_while(keyword):
+    get_result = False
+    while not get_result:
+        try:
+            main(keyword)
+            get_result = True
+        except Exception as e:
+            file_csdn3_util.write_error(e)
+            print e
 
 
 if __name__ == '__main__':
